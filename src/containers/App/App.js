@@ -1,33 +1,40 @@
 import React from 'react';
-import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
+import { Layout, Header, Navigation, Drawer, Content, Footer } from 'react-mdl';
+import { Link } from 'react-router'
+import Image from '../../components/Image/Image';
 import styles from './App.scss';
 
 const title = `Indigo Consulting Group`;
-const logoSrc = '../../assets/images/indigo_full_logo.png';
 
-const App = () => (
-  <div className={styles.icg}>
+export default class App extends React.Component {
 
-    <div style={{height: '300px', position: 'relative'}}>
+  render() {
 
-      <Layout style={{background: 'url(http://www.getmdl.io/assets/demos/transparent.jpg) center / cover'}}>
-        <Header transparent title={title} style={{color: 'white'}}>
-          <img src={logoSrc} />
+    return <div className="icg">
+
+      <Layout>
+
+        <Header title={title} style={{backgroundColor: '#1C3664'}} className="icg-header">
+          <Image width={90} src={require('../../assets/images/logo_icg_white.svg')} />
         </Header>
+
         <Drawer>
           <Navigation>
-            <a href="">Link</a>
-            <a href="">Link</a>
-            <a href="">Link</a>
-            <a href="">Link</a>
+            <Image width={'none'} src={require('../../assets/images/logo_icg.svg')} />
+            <Link activeClassName="active" to="/">Home</Link>
+            <Link activeClassName="active" to="about">About</Link>
+            <Link activeClassName="active" to="contactus">Contact Us</Link>
           </Navigation>
         </Drawer>
-        <Content />
+
+        <Content>
+          {this.props.children}
+        </Content>
+
       </Layout>
 
-    </div>
+    </div>;
 
-  </div>
-);
+  }
 
-export default App;
+};

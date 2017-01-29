@@ -2,8 +2,8 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractCSS = new ExtractTextPlugin('[name].css');
-const extractSASS = new ExtractTextPlugin('[name].sass');
+const extractCSS = new ExtractTextPlugin('icg.css');
+const extractSASS = new ExtractTextPlugin('icg.sass');
 
 module.exports = {
   entry: {
