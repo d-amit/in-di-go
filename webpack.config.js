@@ -2,8 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractCSS = new ExtractTextPlugin('icg.css');
-const extractSASS = new ExtractTextPlugin('icg.sass');
+const extractCSS = new ExtractTextPlugin('[name].css');
 
 module.exports = {
   entry: {
@@ -67,7 +66,7 @@ module.exports = {
         })
       }, {
         test: /\.scss$/,
-        loaders: extractSASS.extract({
+        loaders: extractCSS.extract({
           fallbackLoader: 'style-loader',
           loader: [
             'css-loader',
@@ -89,7 +88,6 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
 
-    extractCSS,
-    extractSASS
+    extractCSS
   ],
 };

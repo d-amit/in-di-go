@@ -1,27 +1,43 @@
 import React from 'react';
 import { Footer } from 'react-mdl';
-import styles from './Home.css';
+import {
+  ParallaxContainer, ParallaxGroup, ParallaxLayerBase, ParallaxLayerBack, ParallaxLayerDeep
+} from '../../components/Parallax/Parallax';
 
 const Home = () => (
-  <div className="wideCards">
+  <ParallaxContainer>
 
-    <div className="wideCard introCard">
+    <ParallaxGroup>
+      <ParallaxLayerBase style={{padding: '5em'}}>
+        <h1>Welcome</h1>
+      </ParallaxLayerBase>
 
-    </div>
+      <ParallaxLayerBack style={{padding: '5em'}}>
+        <h2>Blah Blah</h2>
+      </ParallaxLayerBack>
+    </ParallaxGroup>
 
-    <div className="wideCard missionCard">
+    <ParallaxGroup>
+      <ParallaxLayerBase style={{padding: '5em'}}>
+        <h1>Mission</h1>
+      </ParallaxLayerBase>
 
-    </div>
+      <ParallaxLayerBack style={{padding: '5em'}}>
+        <h2>Blah Blah</h2>
+      </ParallaxLayerBack>
+    </ParallaxGroup>
 
-    <div className="wideCard servicesCard">
+    <ParallaxGroup>
+      <ParallaxLayerBase style={{padding: '5em'}}>
+        <h1>Services</h1>
+      </ParallaxLayerBase>
 
-    </div>
+      <ParallaxLayerBack style={{padding: '5em'}}>
+        <h2>Blah Blah</h2>
+      </ParallaxLayerBack>
+    </ParallaxGroup>
 
-    <div className="wideCard">
-
-    </div>
-
-  </div>
+  </ParallaxContainer>
 );
 
 export default Home;

@@ -1,10 +1,17 @@
+@import '../Home/Home.scss';
+@import '../About/About.scss';
+@import '../Contact/Contact.scss';
+@import '../../components/Parallax/Parrallax.scss';
+
 .icg {
     text-size-adjust: none;
     font-family: 'Palanquin', 'Roboto', helvetica, arial, sans-serif;
-    line-height: 200%;
-    padding: 6px 20px 30px;
 
     .icg-header {
-      color: #222;
+
+    }
+
+    .containerView {
+      padding: 5em;
     }
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Footer } from 'react-mdl';
-import styles from './About.css';
 
 const About = () => (
-  <div>
+  <div className="containerView">
     <h1>About icg</h1>
   </div>
 );
