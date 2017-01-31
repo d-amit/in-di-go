@@ -1,14 +1,27 @@
+@import 'bourbon';
+@import '../../assets/scss/mixins.scss';
 @import '../Home/Home.scss';
 @import '../About/About.scss';
 @import '../Contact/Contact.scss';
-@import '../../components/Parallax/Parrallax.scss';
+
 
 .icg {
     text-size-adjust: none;
     font-family: 'Palanquin', 'Roboto', helvetica, arial, sans-serif;
 
-    .icg-header {
+    @include respond-to(medium-screens) {
+      .mdl-layout__drawer-button {
+          color: #fff;
+      }
+    }
 
+    .icg-header {
+      background-color: #1C3664;
+
+    }
+
+    h1 {
+      color: #1C3664;
     }
 
     .containerView {

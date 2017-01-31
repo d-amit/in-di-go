@@ -2,9 +2,9 @@ import React from 'react';
 import { Layout, Header, Navigation, Drawer, Content, Footer } from 'react-mdl';
 import { Link } from 'react-router'
 import Image from '../../components/Image/Image';
-import './App.scss';
+import $ from 'jquery';
 
-const title = `Indigo Consulting Group`;
+import './App.scss';
 
 export default class App extends React.Component {
 
@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
       <Layout>
 
-        <Header transparent title={title} style={{backgroundColor: '#1C3664'}} className="icg-header">
+        <Header transparent title={' '} className="icg-header">
           <Image width={90} src={require('../../assets/images/logo_icg_white.svg')} />
         </Header>
 

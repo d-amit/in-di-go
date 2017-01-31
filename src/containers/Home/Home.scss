@@ -1,7 +1,75 @@
-.wideCards {
-  padding: 0 5em;
-}
+@import 'bourbon';
 
-.wideCard {
+.icg {
+  .icg-home-container {
 
+    .spacer {
+      &:after {
+        content: ' ~ ';
+      }
+    }
+
+    h2 {
+      padding: 5em 4.5em 0;
+
+      @include respond-to(medium-screens) {
+        text-align: center;
+        padding: 2em 2em 0;
+      }
+    }
+
+    h3 {
+      padding: 2em 5em 0;
+
+      @include respond-to(medium-screens) {
+        text-align: center;
+        padding: 2em 2em 0;
+      }
+    }
+
+    h4 {
+      padding: 2em 6em 0;
+
+      @include respond-to(medium-screens) {
+        text-align: center;
+        padding: 2em 2em 0;
+      }
+    }
+
+    .icg-home-intro {
+      padding: 1em 0;
+
+      background-image: url("../../assets/images/StockSnap_V2XWJHNVE1.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      h2 {
+        color: #fff;
+      }
+
+      h3 {
+        color: #bbb;
+      }
+
+      h4 {
+        color: #fff;
+      }
+
+    }
+
+    .icg-home-mission {
+      padding: 1em 0;
+
+      background-image: url("../../assets/images/StockSnap_K44JV4PJCV.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .icg-home-services {
+
+    }
+
+  }
 }

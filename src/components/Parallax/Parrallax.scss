@@ -1,4 +1,6 @@
+//
 // Adapted from http://keithclark.co.uk/articles/pure-css-parallax-websites/
+//
 
 .parallax {
   perspective: 1px;
@@ -13,22 +15,26 @@
   }
 
   .parallax__layer {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 
+    &.parallax__layer--fore {
+      transform: translate3D(0,0,0.1px);
+    }
+
     &.parallax__layer--base {
-      transform: translateZ(0);
+      transform: translate3D(0,0,0.05px);
     }
 
     &.parallax__layer--back {
-      transform: translateZ(-1px);
+      transform: translate3D(0,0,0);
     }
 
     &.parallax__layer--deep {
-      transform: translateZ(-2px);
+      transform: translate3D(0,0,-0.1px);
     }
   }
 

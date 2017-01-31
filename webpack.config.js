@@ -1,6 +1,10 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const sassPaths = require('node-bourbon').includePaths.map((sassPath) => {
+  return "includePaths[]=" + sassPath;
+}).join("&");;
 
 const extractCSS = new ExtractTextPlugin('[name].css');
 
@@ -51,9 +55,7 @@ module.exports = {
     rules: [
       {
         test: /\.js|jsx$/,
-        use: [
-          'babel-loader'
-        ],
+        use: [ 'babel-loader' ],
         exclude: /node_modules/
       }, {
         test: /\.css$/,
@@ -70,7 +72,7 @@ module.exports = {
           fallbackLoader: 'style-loader',
           loader: [
             'css-loader',
-            'sass-loader',
+            'sass-loader?' + sassPaths,
             'postcss-loader'
           ]
         })
@@ -87,6 +89,10 @@ module.exports = {
 
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
+
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    }),
 
     extractCSS
   ],
