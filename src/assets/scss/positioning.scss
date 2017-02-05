@@ -1,0 +1,19 @@
+
+// Font Positioning
+.text-centered {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+
+
+
+// Content Positioning
+.centered {
+  @include centered;
+}
