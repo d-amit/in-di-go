@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import Image from '../../components/Image/Image';
 import $ from 'jquery';
 
-import './App.scss';
+require('./App.scss');
 
 export default class App extends React.Component {
 
@@ -15,9 +15,8 @@ export default class App extends React.Component {
 
   render() {
 
-    return <div className="icg">
-
-      <Layout>
+    return (
+      <Layout className="icg">
 
         <Header transparent title={' '} className="icg-header">
           <Image width={90} src={require('../../assets/images/logo_icg_white.svg')} />
@@ -37,8 +36,7 @@ export default class App extends React.Component {
         </Content>
 
       </Layout>
-
-    </div>;
+    );
 
   }
 

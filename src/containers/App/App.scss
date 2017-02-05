@@ -1,4 +1,7 @@
 @import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/layout.scss';
+@import '../../assets/scss/positioning.scss';
+
 @import '../Home/Home.scss';
 @import '../About/About.scss';
 @import '../Contact/Contact.scss';
@@ -7,6 +10,15 @@
 .icg {
     text-size-adjust: none;
     font-family: 'Palanquin', 'Roboto', helvetica, arial, sans-serif;
+
+    scroll-behavior: smooth;
+
+    @include headings(1,6) {
+      padding: 1em;
+      @include respond-to(medium-screens) {
+        padding: 0.25em 1em;
+      }
+    }
 
     @include respond-to(medium-screens) {
       .mdl-layout__drawer-button {

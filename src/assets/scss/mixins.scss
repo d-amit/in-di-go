@@ -4,7 +4,7 @@
  */
 
 
-/* RESPONSIVE MIXINS */
+// RESPONSIVE MIXINS
 $break-small: 320px;
 $break-large: 1024px;
 
@@ -18,4 +18,19 @@ $break-large: 1024px;
   @else if $media == wide-screens {
     @media only screen and (min-width: $break-large) { @content; }
   }
+}
+
+@mixin centered {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+// ALL HEADINGS
+@mixin headings($from: 1, $to: 6) {
+    @for $i from $from through $to {
+      h#{$i}{
+        @content
+      }
+    }
 }

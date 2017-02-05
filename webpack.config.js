@@ -92,4 +92,8 @@ module.exports = {
 
     extractCSS
   ],
+
+  resolve: {
+    modules: [ "node_modules" ]
+  }
 };
