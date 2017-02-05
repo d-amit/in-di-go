@@ -2,10 +2,6 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const sassPaths = require('node-bourbon').includePaths.map((sassPath) => {
-  return "includePaths[]=" + sassPath;
-}).join("&");;
-
 const extractCSS = new ExtractTextPlugin('[name].css');
 
 module.exports = {
@@ -72,7 +68,7 @@ module.exports = {
           fallbackLoader: 'style-loader',
           loader: [
             'css-loader',
-            'sass-loader?' + sassPaths,
+            'sass-loader',
             'postcss-loader'
           ]
         })
