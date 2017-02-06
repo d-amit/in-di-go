@@ -7,7 +7,7 @@ const MissionView = (props) => (
 
       <h1>Mission</h1>
 
-      <p>Blah Blah</p>
+      <h2>Blah Blah</h2>
 
     </section>
 

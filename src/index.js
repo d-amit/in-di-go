@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader'; // AppContainer is a necessary 
 
 import 'react-mdl/extra/material.js';
 require('react-mdl/extra/material.css');
-require('animate.css');
 
 import { App, Home, About, Contact } from './containers';
 
