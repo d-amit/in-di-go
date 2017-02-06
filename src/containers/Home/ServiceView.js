@@ -1,19 +1,17 @@
 import React from 'react';
-import {
-  Grid, Cell, Card, CardText, CardTitle, Icon
-} from 'react-mdl';
+import { Grid, Cell, Card, CardText, CardTitle, Icon } from 'react-mdl';
 
 const renderCard = (title, text, props) => (
   <Card shadow={1} className="card-full-width">
       <CardTitle expand style={{alignItems: 'flex-start', color: '#333'}}>
           <h4>{title}</h4>
       </CardTitle>
-      <CardText border >{text}</CardText>
+      <CardText>{text}</CardText>
   </Card>
 )
 
 const ServiceView = (props) => (
-  <section className="icg-home-services">
+  <section id={props.id} className="icg-home-services">
 
     <h1>Services</h1>
 
@@ -32,12 +30,7 @@ const ServiceView = (props) => (
       </Cell>
     </Grid>
 
-    <div className="centered">
-        <Icon onClick={ props.handleScrollTo }
-          style={{ color: '#fff', fontSize: 64, cursor: 'pointer' }}
-          name="keyboard_arrow_down" />
-    </div>
-
+    {props.children}
   </section>
 )
 

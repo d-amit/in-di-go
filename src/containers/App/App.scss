@@ -1,3 +1,4 @@
+@import '../../assets/scss/animate.scss';
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/layout.scss';
 @import '../../assets/scss/positioning.scss';
@@ -32,7 +33,6 @@
 
     .icg-header {
       background-color: #1C3664;
-
     }
 
     h1 {
@@ -41,5 +41,17 @@
 
     .containerView {
       padding: 5em;
+    }
+
+    i.icg-bounce {
+      @include animation(bounce 1s);
+
+      &:hover {
+        @include animation(bounce 2s infinite);
+      }
+    }
+
+    .icg-fade-in {
+        @include animation(fadein 10s);
     }
 }

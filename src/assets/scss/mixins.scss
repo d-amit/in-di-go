@@ -26,6 +26,59 @@ $break-large: 1024px;
   display: flex;
 }
 
+@mixin transform($type) {
+  -webkit-transform: $type;
+  transform: $type;
+}
+
+
+// ANIMATION CSS
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  transition: $args;
+}
+
+@mixin transform($type) {
+  -webkit-transform: $type;
+  transform: $type;
+}
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    animation:         $animations;
+}
+
+
+
+
+
+
 // ALL HEADINGS
 @mixin headings($from: 1, $to: 6) {
     @for $i from $from through $to {

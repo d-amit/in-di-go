@@ -1,32 +1,40 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { scrollTo } from '../../redux/actions';
-import Scroll from 'react-scroll';
+import { Icon } from 'react-mdl';
 import IntroView from './IntroView';
 import MissionView from './MissionView';
 import ServiceView from './ServiceView';
 
-const Home = ({ dispatch }) => {
+const getScrollToIcon = (targetId, containerClass = '') => {
+  let scrollIntoView = (targetId) => {
+    let el = document.getElementById(targetId);
+    el.scrollIntoView(); // use native scroll
+  };
 
-  let handleScrollToMission = (e) => {
-    e.preventDefault()
-    dispatch(scrollTo('mission'));
-  }
+  return (
+    <div className={`centered icg-fade-in ${containerClass}`}>
+        <Icon className="icg-bounce" onClick={() => scrollIntoView(targetId)} to={targetId} name="keyboard_arrow_down"
+          style={{ color: '#fff', fontSize: 64, cursor: 'pointer' }} />
+    </div>
+  );
+};
 
-  let handleScrollToService = (e) => {
-    e.preventDefault()
-    dispatch(scrollTo('services'));
-  }
+const Home = () => {
 
   return (
     <div className="icg-home-container">
-      <IntroView handleScrollTo={handleScrollToService} />
-      <ServiceView handleScrollTo={handleScrollToMission} />
-      <MissionView />
+
+      <IntroView id="homeIntro" >
+        {getScrollToIcon('homeServices', 'section-bottom')}
+      </IntroView>
+
+      <ServiceView id="homeServices" >
+        {getScrollToIcon('homeMission')}
+      </ServiceView>
+
+      <MissionView id="homeMission"/>
     </div>
   )
+
 };
 
-export default connect(
-  state => ({ scrollTo: state.scrollTo })
-)(Home);
+export default Home;
