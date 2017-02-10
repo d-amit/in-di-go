@@ -1,9 +1,0 @@
-@mixin cell {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0;
-}
-
-.cell {
-  @include cell();
-}

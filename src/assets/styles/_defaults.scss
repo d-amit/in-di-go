@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.icg {
+
+  text-size-adjust: none;
+  font-family: 'Palanquin', 'Roboto', helvetica, arial, sans-serif;
+
+  @include headings() {
+    padding: 0.25em;
+  }
+
+}

@@ -1,0 +1,25 @@
+.icg-contact {
+  overflow: none;
+  scroll-snap-type: mandatory;
+
+  /* older spec implementation */
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-y: repeat(100%);
+
+  .icg-intro {
+    @include sectionContainers();
+    background-image: url("assets/images/StockSnap_MW1PY0DFMA.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+  }
+
+  .icg-form {
+    @include sectionContainers(true);
+    background-color: #999;
+    color: #fff;
+  }
+
+}
