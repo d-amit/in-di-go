@@ -14,7 +14,7 @@ const render = () => {
   ReactDOM.render(
     (
       <AppContainer>
-        <Router history={browserHistory}>
+        <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
           <Route path="/" component={App}>
             <IndexRoute component={Home}/>
             <Route path="about" component={About}/>

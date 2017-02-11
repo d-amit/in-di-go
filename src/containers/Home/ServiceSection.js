@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, CardAction, CardSupportText, Section } from '../../components';
+import { Card, CardTitle, CardAction, CardSupportText, Section, Button } from '../../components';
 import MDL from 'material-design-lite/material.min.js';
 
 class ServiceSection extends React.Component {
@@ -16,7 +16,7 @@ class ServiceSection extends React.Component {
           {icon && <i className="card-icon material-icons">{icon}</i> }
           <span className="card-title">{title}</span>
         </CardTitle>
-        <CardSupportText>{text}</CardSupportText>
+        <CardSupportText className="text-justified">{text}</CardSupportText>
       </Card>
     );
   }
@@ -33,16 +33,17 @@ class ServiceSection extends React.Component {
     let cellResponsive = `mdl-cell--stretch mdl-cell--${ratio.desktop}-col mdl-cell--${ratio.tablet}-col-tablet mdl-cell--${ratio.phone}-col-phone`;
     let cellClass = defaultCellClasses + ' ' + cellResponsive;
     let sectionClass = `icg-services ${this.props.className}`;
+    let aosButton = { type: 'fade-up' };
 
     return (
-      <Section className={sectionClass}>
+      <Section id={this.props.id} className={sectionClass}>
         <h2 className="centered" data-aos="fade-up">Services</h2>
-        <div className="mdl-grid centered">
 
+      <div className="mdl-grid centered">
           <div className={cellClass}>
             {this.renderCard(
               'Interface Design',
-              'blah blah blah blah blah blah blah blah',
+              'We work to simplify a complex multi-feature solution into intuitive, useful interfaces to different platforms by wireframing, prototyping, and testing with users and clients, allows us to continually refine our designs to meet your needs. ',
               'border_color'
             )}
           </div>
@@ -81,8 +82,12 @@ class ServiceSection extends React.Component {
               'group'
             )}
           </div>
-
         </div>
+
+        <Button aos={aosButton} className="centered hvr-grow" target="#homeMission">
+          Learn why we do what we do
+        </Button>
+
       </Section>
     );
   }

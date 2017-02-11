@@ -24,9 +24,9 @@ class Home extends React.Component {
       <div className="icg-home content">
 
         <div className="fullview-container" onScroll={this.handleScroll}>
-          <IntroSection className="fullview-item" data-aos="fade-up" />
-          <ServiceSection className="fullview-item" data-aos="fade-up" />
-          <MissionSection className="fullview-item" data-aos="fade-up" />
+          <IntroSection id="homeIntro" className="fullview-item" data-aos="fade-up" />
+          <ServiceSection id="homeServices" className="fullview-item" data-aos="fade-up" />
+          <MissionSection id="homeMission" className="fullview-item" data-aos="fade-up" />
         </div>
 
       </div>

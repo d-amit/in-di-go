@@ -1,0 +1,17 @@
+.icg-footer {
+  background-color: #333;
+  height: 300px;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: -99;
+  display: grid;
+  bottom:0;
+  left:0;
+  color: #fff;
+
+  .footer-container {
+    align-self: center;
+  }
+}

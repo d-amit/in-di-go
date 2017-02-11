@@ -13,26 +13,14 @@
 
 .icg {
 
-  .float-right {
-    float:right;
-  }
-
-  .float-left {
-    float: left;
-  }
-
-  .full-width {
-    width: 100%;
-  }
-
-  .centered {
-    align-self: center;
-    text-align: center;
+  &.icg-container {
+    margin-bottom: 300px;
   }
 
   .content {
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 1;
   }
 
   .fullview-container {
@@ -44,5 +32,38 @@
     }
 
   }
+
+
+
+  .float-right {
+    float:right;
+  }
+
+  .float-left {
+    float: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-justified {
+    text-align: justify;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .centered {
+    align-self: center;
+    text-align: center;
+  }
+
+
 
 }
