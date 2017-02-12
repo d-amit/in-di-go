@@ -44,16 +44,13 @@ header {
       }
     }
 
-    .title {
+    .header-title {
       display: inline-block;
       font-size: 1.25em;
       font-weight: 600;
       font-size-adjust: auto;
 
-      @include respond-to(handhelds) {
-        display: none;
-      }
-      @include respond-to(medium-screens) {
+      @include respond-to(xs) {
         display: none;
       }
     }

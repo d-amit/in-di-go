@@ -10,34 +10,40 @@
 $break-small: 320px;
 $break-large: 1024px;
 
-@mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: $break-small) { @content; }
+@mixin respond-to($class) {
+  @if $class == xs {
+    @media screen and (max-width: 500px) { @content; }
   }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  @else if $class == sm {
+    @media screen and (min-width: 768px) { @content; }
   }
-  @else if $media == wide-screens {
-    @media only screen and (min-width: $break-large) { @content; }
+  @else if $class == md {
+    @media screen and (min-width: 992px) { @content; }
+  }
+  @else if $class == lg {
+    @media screen and (min-width: 1200px) { @content; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }
 }
 
 /*  LAYOUT COMPONENTS */
-@mixin sectionContainers($applyResponsive:all) {
+@mixin sectionContainers() {
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @if ($applyResponsive == small) {
-    @include respond-to(handhelds) {
-      height: 100%;
-    }
+  @include respond-to(xs) {
+    height: 100%;
   }
-  @if ($applyResponsive == medium) {
-    @include respond-to(medium-screens) {
-      height: 100%;
-    }
+  @include respond-to(sm) {
+    height: 100%;
   }
+  @include respond-to(md) {
+    height: 100%;
+  }
+
 }
 
 @mixin transition($transition-property, $transition-time, $method) {

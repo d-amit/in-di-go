@@ -29,6 +29,35 @@ class ServiceSection extends React.Component {
       phone: 4
     };
 
+    // TODO: externalize this into another js that can be imported in!
+    let cards = [
+      {
+        title: 'Interface Design',
+        text: 'We work to simplify a complex multi-feature solution into intuitive, useful interfaces to different platforms by wireframing, prototyping, and testing with users and clients, allows us to continually refine our designs to meet your needs. ',
+        icon: 'border_color'
+      }, {
+        title: 'User Experience',
+        text: 'Through research, experience, and industry expertise, we help you understand your user’s needs, goals, and pain points to define clear opportunities and design goals.',
+        icon: 'recent_actors'
+      }, {
+        title: 'Software Development',
+        text: 'We leverage our knowledge the latest methodologies and technologies to work across functional groups and achieve software greatness.',
+        icon: 'developer_mode'
+      }, {
+        title: 'Product Development',
+        text: 'We craft user experiences through interaction design, motion and visual storytelling by creating detailed prototypes, wireframes, and more.',
+        icon: 'developer_board'
+      }, {
+        title: 'Product Strategy',
+        text: 'We help identify the biggest opportunities for your business with a clear strategy that is customer and market-driven.',
+        icon: 'devices_other'
+      }, {
+        title: 'Training & Workshops',
+        text: 'We bring our expertise to our clients, helping them better understand how to best use design and technology within their team.',
+        icon: 'group'
+      }
+    ];
+
     let defaultCellClasses = 'mdl-cell mdl-cell--stretch mdl-cell--top';
     let cellResponsive = `mdl-cell--stretch mdl-cell--${ratio.desktop}-col mdl-cell--${ratio.tablet}-col-tablet mdl-cell--${ratio.phone}-col-phone`;
     let cellClass = defaultCellClasses + ' ' + cellResponsive;
@@ -39,49 +68,12 @@ class ServiceSection extends React.Component {
       <Section id={this.props.id} className={sectionClass}>
         <h2 className="centered" data-aos="fade-up">Services</h2>
 
-      <div className="mdl-grid centered">
-          <div className={cellClass}>
-            {this.renderCard(
-              'Interface Design',
-              'We work to simplify a complex multi-feature solution into intuitive, useful interfaces to different platforms by wireframing, prototyping, and testing with users and clients, allows us to continually refine our designs to meet your needs. ',
-              'border_color'
-            )}
-          </div>
-          <div className={cellClass}>
-            {this.renderCard(
-              'User Experience',
-              'blah blah blah blah blah blah blah blah',
-              'recent_actors'
-            )}
-          </div>
-          <div className={cellClass}>
-            {this.renderCard(
-              'Software Development',
-              'blah blah blah blah blah blah blah blah',
-              'developer_mode'
-            )}
-          </div>
-          <div className={cellClass}>
-            {this.renderCard(
-              'Product Development',
-              'blah blah blah blah blah blah blah blah',
-              'developer_board'
-            )}
-          </div>
-          <div className={cellClass}>
-            {this.renderCard(
-              'Product Strategy',
-              'blah blah blah blah blah blah blah blah',
-              'devices_other'
-            )}
-          </div>
-          <div className={cellClass}>
-            {this.renderCard(
-              'Training & Workshops',
-              'blah blah blah blah blah blah blah blah',
-              'group'
-            )}
-          </div>
+        <div className="mdl-grid centered">
+          {cards.map((card, index) => {
+              return <div key={index} className={cellClass}>
+                {this.renderCard(card.title, card.text, card.icon, card.duration)}
+              </div>;
+          })}
         </div>
 
         <Button aos={aosButton} className="centered hvr-grow" target="#homeMission">

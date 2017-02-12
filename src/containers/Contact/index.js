@@ -24,7 +24,7 @@ class Contact extends React.Component {
 
         <div className="fullview-container" onScroll={this.handleScroll}>
           <IntroSection className="fullview-item" data-aos="fade-up" />
-          <FormSection className="fullview-item" data-aos="fade-up" />
+          <FormSection id="formSection" className="fullview-item" data-aos="fade-up" />
         </div>
 
       </div>

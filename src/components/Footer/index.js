@@ -25,7 +25,12 @@ class Footer extends React.Component {
               </li>
             </ul>
           </div>
-          <span className="copyright">Copyright © 2017 ICG - Indigo Consulting Group, Inc. All rights reserved.</span>
+          <div className="centered">
+            <span className="madeWithLove">
+              Made with <i className="material-icons">favorite</i> &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+            <span className="copyright">© 2017 Indigo Consulting Group, Inc.</span>
+          </div>
         </div>
       </footer>
     );

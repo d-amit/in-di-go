@@ -34,7 +34,7 @@ class Header extends React.Component {
 
           <Link className="hvr-bob" to="/">
             <div className="shortLogo">icg</div>
-            <div className="title">Indigo Consulting Group</div>
+            <div className="header-title">Indigo Consulting Group</div>
           </Link>
 
         </div>

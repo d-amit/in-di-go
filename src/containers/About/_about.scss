@@ -1,10 +1,5 @@
 .icg-about {
   overflow: none;
-  scroll-snap-type: mandatory;
-
-  /* older spec implementation */
-  scroll-snap-destination: 0% 100%;
-  scroll-snap-points-y: repeat(100%);
 
   .icg-intro {
     @include sectionContainers();
@@ -17,7 +12,7 @@
   }
 
   .icg-info {
-    @include sectionContainers(true);
+    @include sectionContainers();
     background-color: #999;
     color: #fff;
   }

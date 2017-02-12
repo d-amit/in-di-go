@@ -73,12 +73,18 @@
 
 
     .copyright {
-      display: block;
-      position: absolute;
-      bottom: 0;
       font-size: 0.95em;
       font-weight: lighter;
-      left: 30px;
+    }
+
+    .madeWithLove {
+      line-height: 60px;
+
+      i {
+        line-height: 21px;
+        color: pink;
+        vertical-align: middle;
+      }
     }
 
   }

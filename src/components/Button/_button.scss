@@ -13,4 +13,13 @@ a.icg-btn {
     &:hover {
       background:rgba(250, 250, 250, 0.25);
     }
+
+    &.borderless {
+      border: none;
+      box-shadow: none;
+
+      &:hover {
+        background: transparent;
+      }
+    }
 }
