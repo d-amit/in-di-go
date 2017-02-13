@@ -17,6 +17,10 @@
     }
   }
 
+  .thankyou {
+    padding: 2em 0;
+  }
+
   .icg-form {
     @include sectionContainers();
     background-color: #999;
@@ -39,6 +43,15 @@
       .form-card {
         padding: 1em;
       }
+    }
+  }
+
+  .error {
+    min-width: 300px;
+    max-width: 500px;
+
+    .mdl-dialog__title {
+      color: red;
     }
   }
 

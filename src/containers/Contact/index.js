@@ -16,6 +16,11 @@ class Contact extends React.Component {
 
   componentWillReceiveProps (){
     AOS.refresh();
+
+  }
+
+  componentDidMount() {
+    componentHandler.upgradeDom();
   }
 
   render() {

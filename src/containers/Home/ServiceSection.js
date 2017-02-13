@@ -66,7 +66,7 @@ class ServiceSection extends React.Component {
 
     return (
       <Section id={this.props.id} className={sectionClass}>
-        <h2 className="centered" data-aos="fade-up">Services</h2>
+        <h2 className="centered service-header" data-aos="fade-up">Services</h2>
 
         <div className="mdl-grid centered">
           {cards.map((card, index) => {

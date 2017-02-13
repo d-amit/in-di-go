@@ -1,9 +1,10 @@
 import React from 'react';
-import { Section, Card } from '../../components';
+import { Section, Card, TextField, Dialog, DialogContent, DialogActions } from '../../components';
+import ThankYouSection from './ThankYouSection';
 import MDL from 'material-design-lite/material.min.js';
 import $ from 'jquery';
 
-class FormSection extends React.Component {
+class ContactSection extends React.Component {
 
   constructor(props) {
     super(props);
@@ -26,10 +27,6 @@ class FormSection extends React.Component {
   showDialog() {
     let dialog = document.querySelector('dialog');
 
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-
     dialog.querySelector('.close').addEventListener('click', function() {
         dialog.close();
     });
@@ -42,6 +39,7 @@ class FormSection extends React.Component {
   }
 
   handleSubmit() {
+
     if (this.fieldAreValid()) {
       $.ajax({
           url: "https://formspree.io/info@in-di-go.com",
@@ -56,11 +54,13 @@ class FormSection extends React.Component {
           success: this.handleSuccess.bind(this),
           error: this.handleError.bind(this)
       });
-    } else {
+    }
+    else {
       this.setState({
         error: 'Please complete the form.'
       });
     }
+
   }
 
   handleError(response) {
@@ -94,7 +94,9 @@ class FormSection extends React.Component {
       duration: 1500
     };
 
-    return (
+    return this.state.sent ? (
+      <ThankYouSection id={this.props.id} className={sectionClass} />
+    ) : (
       <Section id={this.props.id} className={sectionClass}>
         <p className="centered" data-aos="fade-in">
           Fill out the form below with some information about your project.
@@ -108,39 +110,35 @@ class FormSection extends React.Component {
             <Card aos={aos} className="form-card mdl-shadow--3dp full-width">
 
               <form action="#">
-
                 <div className="mdl-grid">
 
                   <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-                      <input className="mdl-textfield__input" type="text" id="fullname" pattern="[A-Z,a-z, ]*" value={this.state.name} onChange={this.handleChange.bind(this, 'name')}/>
-                      <label className="mdl-textfield__label" htmlFor="fullname">Name</label>
-                    </div>
+                    <TextField floatingLabel fullWidth id="fullname" label="Name"
+                      pattern="[A-Z,a-z, ]*" value={this.state.name}
+                      onChange={this.handleChange.bind(this, 'name')}>
+                    </TextField>
                   </div>
 
                   <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-                      <input className="mdl-textfield__input" type="text" id="email" value={this.state.email} onChange={this.handleChange.bind(this, 'email')}/>
-                      <label className="mdl-textfield__label" htmlFor="email">Email</label>
-                    </div>
+                    <TextField floatingLabel fullWidth id="email" label="Email"
+                      value={this.state.email} onChange={this.handleChange.bind(this, 'email')}>
+                    </TextField>
                   </div>
 
                   <div className="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-                      <input className="mdl-textfield__input" type="text" id="phone" pattern="[0-9]*" value={this.state.phone} onChange={this.handleChange.bind(this, 'phone')}/>
-                      <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
-                    </div>
+                    <TextField floatingLabel fullWidth id="phone" label="Phone" pattern="[0-9]*"
+                      value={this.state.phone} onChange={this.handleChange.bind(this, 'phone')}>
+                    </TextField>
                   </div>
 
                   <div className="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                    <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label full-width">
-                      <textarea className="mdl-textfield__input" type="text" rows= "5" id="details" value={this.state.details} onChange={this.handleChange.bind(this, 'details')}></textarea>
-                      <label className="mdl-textfield__label" htmlFor="details">Tell us about your project</label>
-                    </div>
+                    <TextField floatingLabel fullWidth
+                      id="details" label="Tell us about your project" style={{height: '150px'}} rows= "5"
+                      value={this.state.details} onChange={this.handleChange.bind(this, 'details')}>
+                    </TextField>
                   </div>
 
                 </div>
-
               </form>
 
               <button className="mdl-button mdl-js-button" onClick={this.handleSubmit.bind(this)}>
@@ -153,19 +151,19 @@ class FormSection extends React.Component {
           </div>
         </div>
 
-        <dialog className="mdl-dialog">
-          <h4 className="mdl-dialog__title">Sorry...</h4>
-          <div className="mdl-dialog__content">
+        <Dialog className="error " title="Sorry...">
+          <DialogContent>
             <p>{this.state.error}</p>
-          </div>
-          <div className="mdl-dialog__actions">
+          </DialogContent>
+          <DialogActions>
             <button type="button" className="mdl-button close">Close</button>
-          </div>
-        </dialog>
+          </DialogActions>
+        </Dialog>
+
       </Section>
     );
   }
 
 }
 
-export default FormSection;
+export default ContactSection;

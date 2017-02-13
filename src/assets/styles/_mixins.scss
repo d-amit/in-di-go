@@ -15,10 +15,10 @@ $break-large: 1024px;
     @media screen and (max-width: 500px) { @content; }
   }
   @else if $class == sm {
-    @media screen and (min-width: 768px) { @content; }
+    @media screen and (max-width: 768px) and (min-width: 500px) { @content; }
   }
   @else if $class == md {
-    @media screen and (min-width: 992px) { @content; }
+    @media screen and (max-width: 992px) and (min-width: 768px){ @content; }
   }
   @else if $class == lg {
     @media screen and (min-width: 1200px) { @content; }
@@ -35,13 +35,16 @@ $break-large: 1024px;
   justify-content: center;
 
   @include respond-to(xs) {
-    height: 100%;
+    padding: 5em 0;
+    height: 100% !important;
   }
   @include respond-to(sm) {
-    height: 100%;
+    padding: 5em 0;
+    height: 100% !important;
   }
   @include respond-to(md) {
-    height: 100%;
+    padding: 5em 0;
+    height: 100% !important;
   }
 
 }
