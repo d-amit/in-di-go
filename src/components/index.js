@@ -4,3 +4,4 @@ export { default as Image } from './Image';
 export { Card, CardTitle, CardAction, CardSupportText } from './Card';
 export { default as Footer } from './Footer';
 export { default as Button } from './Button';
+export { default as TextField } from './TextField';

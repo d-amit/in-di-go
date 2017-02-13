@@ -10,7 +10,7 @@ class IntroSection extends React.Component {
       <Section className={sectionClass}>
         <h1 className="centered" data-aos="zoom-down">Contact ICG</h1>
         <h2 className="centered" data-aos="zoom-up">Interested in working together?</h2>
-        
+
         <Button aos={aos} className="borderless centered hvr-wobble-vertical" target="#formSection">
           <i className="material-icons">expand_more</i>
         </Button>
