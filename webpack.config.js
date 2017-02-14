@@ -73,7 +73,8 @@ module.exports = {
     // prints more readable module names in the browser console on HMR updates
 
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
+      favicon: 'favicon.ico'
     }),
 
     extractCSS
