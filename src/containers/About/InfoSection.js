@@ -5,13 +5,24 @@ class InfoSection extends React.Component {
 
   render() {
     let sectionClass = `icg-info ${this.props.className}`;
-    let naics = {
 
-    };
     let aos = {
       type : "fade-up",
       duration: 1500
     };
+
+    // TODO - externalize the naics codes
+    let naics = [
+      { id: '73729901', name: 'Application Computer Software' },
+      { id: '73740102', name: 'Computer Graphics Service' },
+      { id: '73710000', name: 'Custom Computer Programming Services' },
+      { id: '73710100', name: 'Custom Computer Programming Services' },
+      { id: '541511', name: 'Custom Computer Programming Services' },
+      { id: '511210', name: 'Software Publishers' },
+      { id: '518210', name: 'Data Processing,Hosting, and Related Services' },
+      { id: '611420', name: 'Computer Training' },
+      { id: '82439903', name: 'Software Training, Computer' }
+    ];
 
     return (
       <Section id="aboutInfo" className={sectionClass}>
@@ -44,39 +55,14 @@ class InfoSection extends React.Component {
                 </p>
 
                 <ul className="list">
-                  <li className="row">
-                    <div className="label">73729901</div>
-                    <div className="data">Application computer software</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">73740102</div>
-                    <div className="data">Computer graphics service</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">73710000, 73710100</div>
-                    <div className="data">Custom computer programming services</div>
-                  </li>
-
-                  <li className="row">
-                    <div className="label">541511</div>
-                    <div className="data">Custom Computer Programming Services</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">511210</div>
-                    <div className="data">Software Publishers</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">518210</div>
-                    <div className="data">Data Processing,Hosting, and Related Services</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">611420</div>
-                    <div className="data">Computer Training</div>
-                  </li>
-                  <li className="row">
-                    <div className="label">82439903</div>
-                    <div className="data">Software training, computer</div>
-                  </li>
+                  {naics.map((code, i) => {
+                    return (
+                      <li key={'code' + i} className="row">
+                        <div className="label">{code.id}</div>
+                        <div className="data">{code.name}</div>
+                      </li>
+                    );
+                  })}
                 </ul>
 
               </Card>
