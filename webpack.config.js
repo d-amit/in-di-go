@@ -21,6 +21,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',                    // the output bundle
+    path: resolve(__dirname, 'dist'),
     publicPath: '/'                           // necessary for HMR to know where to load the hot update chunks
   },
 
@@ -29,6 +30,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     historyApiFallback: true,
+    contentBase: resolve(__dirname, 'dist'),  // match the output path
     hot: true,                                // enable HMR on the server
     publicPath: '/'                           // match the output `publicPath`
   },
@@ -60,7 +62,10 @@ module.exports = {
         })
       }, {
         test: /\.(jpg|jpeg|gif|png|ico|svg)$/,
-        loader: 'url'
+        loader: 'url',
+        options: {
+          limit: 25000,
+        }
       }
     ],
   },
@@ -73,7 +78,8 @@ module.exports = {
     // prints more readable module names in the browser console on HMR updates
 
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
+      favicon: 'favicon.ico'
     }),
 
     extractCSS
