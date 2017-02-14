@@ -77,7 +77,7 @@ class ServiceSection extends React.Component {
         </div>
 
         <Button aos={aosButton} className="centered hvr-grow" target="#homeMission">
-          Learn why we do what we do
+          What we can do for you
         </Button>
 
       </Section>
