@@ -59,7 +59,7 @@ module.exports = {
           ]
         })
       }, {
-        test: /\.(png|jpg|svg)$/,
+        test: /\.(jpg|jpeg|gif|png|ico|svg)$/,
         loader: 'url'
       }
     ],
