@@ -21,7 +21,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',                    // the output bundle
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'docs'),
     publicPath: '/'                           // necessary for HMR to know where to load the hot update chunks
   },
 
@@ -30,7 +30,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     historyApiFallback: true,
-    contentBase: resolve(__dirname, 'dist'),  // match the output path
+    contentBase: resolve(__dirname, 'docs'),  // match the output path
     hot: true,                                // enable HMR on the server
     publicPath: '/'                           // match the output `publicPath`
   },
