@@ -1,5 +1,7 @@
 import React from 'react';
 
+require('dialog-polyfill/dialog-polyfill.css');
+
 class Dialog extends React.Component {
 
   render() {

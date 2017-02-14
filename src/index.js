@@ -8,7 +8,6 @@ import { App, Home, About, Contact } from './containers';
 require('aos/dist/aos.css');
 require('material-design-lite/material.min.css');
 require('./main.scss');
-require('./favicon.ico');
 
 const render = () => {
 

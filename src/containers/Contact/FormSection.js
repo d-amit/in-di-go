@@ -3,6 +3,7 @@ import { Section, Card, TextField, Dialog, DialogContent, DialogActions } from '
 import ThankYouSection from './ThankYouSection';
 import MDL from 'material-design-lite/material.min.js';
 import $ from 'jquery';
+import dialogPolyfill from 'dialog-polyfill';
 
 class ContactSection extends React.Component {
 
@@ -26,6 +27,8 @@ class ContactSection extends React.Component {
 
   showDialog() {
     let dialog = document.querySelector('dialog');
+
+    dialogPolyfill.registerDialog(dialog);
 
     dialog.querySelector('.close').addEventListener('click', function() {
         dialog.close();
