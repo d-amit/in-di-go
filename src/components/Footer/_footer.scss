@@ -1,0 +1,93 @@
+.icg-footer {
+  background-color: #333;
+  height: 300px;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: -99;
+  display: grid;
+  bottom:0;
+  left:0;
+  color: #fff;
+
+  .footer-content {
+    text-align: left;
+    align-items: baseline;
+    width: 100%;
+    height: 100%;
+    margin: 100px 0 0 0;
+
+    .footer-row {
+      display: inline-block;
+      width: inherit;
+
+      .footer-links, .footer-logo {
+        display: inline-flex;
+        vertical-align: top;
+        position: relative;
+      }
+
+      .footer-links {
+        float: right;
+        top: 22px;
+        right: 20px;
+
+        a {
+          color: #999;
+
+          &:hover {
+            color: #fff;
+          }
+
+          svg {
+            cursor: pointer;
+            fill: currentColor;
+            vertical-align: bottom;
+          }
+        }
+      }
+
+      .footer-logo {
+        float: left;
+        left: 20px;
+      }
+
+      ul {
+        display: inline-flex;
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style: none;
+          margin: 0 0.45em;
+
+          a {
+            font-style: normal;
+            font-weight: 600;
+          }
+        }
+      }
+
+    }
+
+
+
+    .copyright {
+      font-size: 0.95em;
+      font-weight: lighter;
+    }
+
+    .madeWithLove {
+      line-height: 60px;
+
+      i {
+        line-height: 21px;
+        color: pink;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+}

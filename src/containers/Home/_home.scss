@@ -1,0 +1,74 @@
+.icg-home {
+  overflow: none;
+
+  .icg-introduction {
+    @include sectionContainers();
+    background-image: url("assets/images/StockSnap_QMA508CSJ4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+  }
+
+  .icg-services {
+    @include sectionContainers();
+    background-image: url("assets/images/StockSnap_YR89OQFMT1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #333;
+    background-blend-mode: soft-light;
+
+    h2, a {
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+      color: #fff;
+    }
+
+    .service-header {
+      margin-top: 1em;
+    }
+
+    .mdl-card {
+      &:hover {
+        .mdl-card__title {
+          border-top: 1px solid;
+          border-left: 1px solid;
+          border-right: 1px solid;
+          border-color: rgba(250,250,250, 0.45);
+          color: #fff;
+          background-color: rgba(0,0,0, 0.65);
+        }
+
+        .mdl-card__supporting-text {
+          color: #1C3664;
+        }
+      }
+    }
+
+    .card-title {
+      font-size: 1.2em;
+      transition: all 0.3s ease 0s;
+    }
+
+    .card-icon {
+      font-size: 1.5em;
+      &:after {
+        content: '\00a0';
+      }
+    }
+  }
+
+  .icg-mission {
+    @include sectionContainers();
+    background-image: url("assets/images/StockSnap_F5TANEQVUH.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+    background-blend-mode: lighten;
+    background-color: #1C3664;
+  }
+
+}

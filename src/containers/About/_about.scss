@@ -1,0 +1,76 @@
+.icg-about {
+  overflow: none;
+
+  .icg-intro {
+    @include sectionContainers();
+    background-image: url("assets/images/StockSnap_V2XWJHNVE1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 1);
+  }
+
+  .icg-info {
+    @include sectionContainers();
+    background-color: #999;
+    color: #fff;
+
+    .card-container {
+      word-wrap: break-word;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 2em;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      &.inline {
+        display: inline-flex;
+      }
+
+      &.list {
+        width: 76%;
+        margin: 1em 12%;
+      }
+
+      li {
+        list-style: none;
+        margin: 0 0.45em;
+
+        &.row {
+          display: inline-flex;
+          width: 100%;
+        }
+
+        .label {
+          position: relative;
+          display: inline-block;
+          font-weight: 900;
+          width: 30%;
+          text-align: left;
+        }
+
+        .data {
+          position: relative;
+          display: inline-block;
+          text-align: right;
+          width: 65%;
+        }
+
+
+      }
+    }
+
+  }
+
+  p {
+    font-size: 1.25em;
+    margin: 1em 3em;
+  }
+
+}

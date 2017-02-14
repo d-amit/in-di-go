@@ -1,0 +1,57 @@
+@mixin headings($from: 1, $to: 6) {
+  @for $i from $from through $to {
+    h#{$i} {
+      @content
+    }
+  }
+}
+
+/* RESPONSIVE MIXINS */
+$break-small: 320px;
+$break-large: 1024px;
+
+@mixin respond-to($class) {
+  @if $class == xs {
+    @media screen and (max-width: 500px) { @content; }
+  }
+  @else if $class == sm {
+    @media screen and (max-width: 768px) and (min-width: 500px) { @content; }
+  }
+  @else if $class == md {
+    @media screen and (max-width: 992px) and (min-width: 768px){ @content; }
+  }
+  @else if $class == lg {
+    @media screen and (min-width: 1200px) { @content; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+/*  LAYOUT COMPONENTS */
+@mixin sectionContainers() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include respond-to(xs) {
+    padding: 5em 0;
+    height: 100% !important;
+  }
+  @include respond-to(sm) {
+    padding: 5em 0;
+    height: 100% !important;
+  }
+  @include respond-to(md) {
+    padding: 5em 0;
+    height: 100% !important;
+  }
+
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}

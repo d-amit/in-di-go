@@ -1,0 +1,72 @@
+@import './assets/styles/_mixins.scss';
+@import './assets/styles/_defaults.scss';
+
+@import '../node_modules/hover.css/scss/hover.scss';
+
+/* components */
+@import './components/Header/_header.scss';
+
+/* containers */
+@import './containers/Home/_home.scss';
+@import './containers/Contact/_contact.scss';
+@import './containers/About/_about.scss';
+
+.icg {
+
+  &.icg-container {
+    margin-bottom: 300px;
+  }
+
+  .content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+  }
+
+  .fullview-container {
+    overflow: hidden;
+
+    .fullview-item {
+      height: 100vh;
+      width: 100vw;
+    }
+
+  }
+
+
+
+  .float-right {
+    float:right;
+  }
+
+  .float-left {
+    float: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-justified {
+    text-align: justify;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .centered {
+    align-self: center;
+    text-align: center;
+  }
+
+  .mdl-textfield {
+    color: #222 !important;
+  }
+
+
+}
