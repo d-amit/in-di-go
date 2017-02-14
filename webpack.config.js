@@ -21,7 +21,6 @@ module.exports = {
 
   output: {
     filename: '[name].js',                    // the output bundle
-    path: resolve(__dirname, 'dist'),
     publicPath: '/'                           // necessary for HMR to know where to load the hot update chunks
   },
 
@@ -31,7 +30,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     hot: true,                                // enable HMR on the server
-    contentBase: resolve(__dirname, 'dist'),  // match the output path
     publicPath: '/'                           // match the output `publicPath`
   },
 
