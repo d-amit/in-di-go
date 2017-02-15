@@ -27,12 +27,12 @@ class Header extends React.Component {
         <div className="icg-header">
 
           <ul className="navigation">
-            <li><Link className="hvr-bob" to="/">Home</Link></li>
-            <li><Link className="hvr-bob" to="/about">About</Link></li>
-            <li><Link className="hvr-bob" to="/contactus">Contact</Link></li>
+            <li><Link className="hvr-pop" to="/">Home</Link></li>
+            <li><Link className="hvr-pop" to="/about">About</Link></li>
+            <li><Link className="hvr-pop" to="/contactus">Contact</Link></li>
           </ul>
 
-          <Link className="hvr-bob" to="/">
+          <Link className="hvr-pop" to="/">
             <div className="shortLogo">icg</div>
             <div className="header-title">Indigo Consulting Group</div>
           </Link>

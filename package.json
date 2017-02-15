@@ -44,6 +44,6 @@
     "start": "webpack-dev-server",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build": "webpack --env=prod --progress --profile --colors",
-    "cleanup": "rm -rf /docs/"
+    "cleanup": "rm -rf docs"
   }
 }

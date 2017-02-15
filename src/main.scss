@@ -11,6 +11,9 @@
 @import './containers/Contact/_contact.scss';
 @import './containers/About/_about.scss';
 
+body {
+  background-color: #333;
+}
 .icg {
 
   &.icg-container {

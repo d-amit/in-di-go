@@ -10,7 +10,7 @@ class Home extends React.Component {
   constructor(props, context) {
     super(props, context);
     AOS.init({
-      duration: 1200,
+      duration: 2400,
       easing: 'ease-in-out-back'
     });
   }
