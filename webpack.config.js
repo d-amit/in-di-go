@@ -62,10 +62,7 @@ module.exports = {
         })
       }, {
         test: /\.(jpg|jpeg|gif|png|ico|svg)$/,
-        loader: 'url',
-        options: {
-          limit: 25000,
-        }
+        loader: 'file-loader'
       }
     ],
   },
