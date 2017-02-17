@@ -1,15 +1,18 @@
 {
   "name": "aos-test",
   "version": "1.0.0",
-  "description": "aos test",
+  "description": "Indigo Consulting Group Company Website",
   "main": "index.js",
-  "repository": "git@github.com:d-amit/aos-test.git",
+  "repository": "git@github.com:d-amit/in-di-go.git",
   "author": "Amit Daya <amitdaya@in-di-go.com>",
-  "license": "MIT",
+  "license": "GNU GPLv3",
   "dependencies": {
     "aos": "^2.1.1",
+    "compression": "^1.6.2",
     "dialog-polyfill": "^0.4.7",
+    "express": "^4.14.1",
     "hover.css": "^2.0.2",
+    "if-env": "^1.0.0",
     "jquery": "^3.1.1",
     "material-design-lite": "^1.3.0",
     "react": "15.3.0",
@@ -41,9 +44,9 @@
     "webpack-dev-server": "2.1.0-beta.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build": "webpack --env=prod --progress --profile --colors",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "webpack-dev-server",
+    "start:prod": "webpack && node server.js",
     "cleanup": "rm -rf docs"
   }
 }
