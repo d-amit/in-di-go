@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import $ from 'jquery';
 
 class Header extends React.Component {
@@ -27,15 +26,15 @@ class Header extends React.Component {
         <div className="icg-header">
 
           <ul className="navigation">
-            <li><Link className="hvr-pop" to="/">Home</Link></li>
-            <li><Link className="hvr-pop" to="/about">About</Link></li>
-            <li><Link className="hvr-pop" to="/contactus">Contact</Link></li>
+            <li><a className="hvr-pop" onClick={this.props.goToView.bind(this, 'HOME')}>Home</a></li>
+            <li><a className="hvr-pop" onClick={this.props.goToView.bind(this, 'ABOUT')}>About</a></li>
+            <li><a className="hvr-pop" onClick={this.props.goToView.bind(this, 'CONTACT')}>Contact</a></li>
           </ul>
 
-          <Link className="hvr-pop" to="/">
+          <a className="hvr-pop" onClick={this.props.goToView.bind(this, 'HOME')}>
             <div className="shortLogo">icg</div>
             <div className="header-title">Indigo Consulting Group</div>
-          </Link>
+          </a>
 
         </div>
 

@@ -1,5 +1,5 @@
 {
-  "name": "aos-test",
+  "name": "in-di-go",
   "version": "1.0.0",
   "description": "Indigo Consulting Group Company Website",
   "main": "index.js",
@@ -18,7 +18,9 @@
     "react": "15.3.0",
     "react-dom": "15.3.0",
     "react-pure-render": "^1.0.2",
+    "react-redux": "^5.0.3",
     "react-router": "^3.0.2",
+    "redux": "^3.6.0",
     "social-logos": "^1.0.1"
   },
   "devDependencies": {
