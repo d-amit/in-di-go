@@ -3,6 +3,21 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('[name].css');
+const defaultPlugins = [
+  new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+  new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+  new HtmlWebpackPlugin({
+    template: 'index.html',
+    favicon: 'favicon.ico'
+  }),
+
+  extractCSS
+];
+const devPlugins = [];
+const prodPlugins = [
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.optimize.UglifyJsPlugin()
+];
 
 module.exports = {
   entry: {
@@ -67,20 +82,8 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    // enable HMR globally
-
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
-
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      favicon: 'favicon.ico'
-    }),
-
-    extractCSS
-  ],
+  plugins: process.env.NODE_ENV === 'production' ?
+    defaultPlugins.concat(prodPlugins) : defaultPlugins.concat(devPlugins),
 
   resolve: {
     modules: [ "node_modules" ]

@@ -2,22 +2,46 @@ import React from 'react';
 import AOS from 'aos/dist/aos';
 require('aos/dist/aos.css');
 
+import { actions } from '../../redux';
+import { connect } from 'react-redux';
+import { Home, About, Contact } from '../index.js';
 import { Header, Footer } from '../../components';
 
-class App extends React.Component {
+const App = ({ view, onLinkClick }) => {
 
-  render() {
+    let content = (<Home/>);
+    if (view === 'ABOUT') {
+      content = (<About/>);
+    }
+    else if (view && view === 'CONTACT') {
+      content = (<Contact/>);
+    }
 
     return (
       <div className="icg icg-container">
-        <Header />
-        {this.props.children}
+        <Header goToView={onLinkClick}/>
+        {content}
         <Footer className="centered"/>
       </div>
     );
 
-  }
-
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    view : state.view
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLinkClick: (view) => {
+      dispatch(actions.getActiveView(view))
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
