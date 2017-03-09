@@ -1,10 +1,20 @@
 import React from 'react';
 import { Section, Button } from '../../components';
+import $ from 'jquery';
 
-class IntroSection extends React.Component {
+const goToNext = (target) => {
 
-  render() {
-    let sectionClass = `icg-intro ${this.props.className}`;
+  if (target) {
+    $('html, body').animate({
+        scrollTop: $(target).offset().top
+    },'500', 'swing');
+  }
+
+}
+
+const IntroSection = ({ className }) => {
+
+    let sectionClass = `icg-intro ${className}`;
     let aos = {
       type: 'fade-up',
       duration: 1500
@@ -18,13 +28,12 @@ class IntroSection extends React.Component {
           <p data-aos="fade-in">Indigo Consulting Group goal is to <span style={{'fontStyle': 'italic'}}>enrich lives through positive user experiences</span>​.</p>
           <p data-aos="fade-in">We have successfully delivered full system lifecycle implementations for both small and large projects.</p>
         </div>
-        <Button aos={aos} className="centered hvr-sink" target="#aboutInfo">
+        <Button aos={aos} className="centered hvr-sink"
+          handleClick={() => { goToNext('#aboutInfo')}} target="#aboutInfo">
           Learn more
         </Button>
       </Section>
     );
-
-  }
 
 }
 
