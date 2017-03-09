@@ -1,20 +1,45 @@
 import React from 'react';
 import { Section, Button } from '../../components';
-import { Link } from 'react-router';
 
-class MissionSection extends React.Component {
+import { actions } from '../../redux';
+import { connect } from 'react-redux';
 
-  render() {
-    let sectionClass = `icg-mission ${this.props.className}`;
+const MissionSection = ({ className, id, view, onLinkClick }) => {
+
+    let sectionClass = `icg-mission ${className}`;
     let aosButton = { type: 'fade-up' };
+
     return (
-      <Section id={this.props.id} className={sectionClass}>
+      <Section id={id} className={sectionClass}>
+
         <h2 className="centered" data-aos="fade-down">Let's Talk About Your Project</h2>
-        <Button aos={aosButton} href="/contactus" className="centered hvr-grow">Start a Conversation</Button>
+
+        <Button aos={aosButton}
+          handleClick={() => { onLinkClick('CONTACT') }}
+          className="centered hvr-grow">
+          Start a Conversation
+        </Button>
+
       </Section>
     );
-  }
 
 }
 
-export default MissionSection;
+const mapStateToProps = (state) => {
+  return {
+    view : state.view
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLinkClick: (view) => {
+      dispatch(actions.getActiveView(view))
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MissionSection);

@@ -1,27 +1,37 @@
 import React from 'react';
 import { Card, CardTitle, CardAction, CardSupportText, Section, Button } from '../../components';
 import MDL from 'material-design-lite/material.min.js';
+import $ from 'jquery';
 
-class ServiceSection extends React.Component {
+const goToNext = (target) => {
 
-  renderCard(title='', text='', icon, duration=1500) {
-    let aos = {
-      type : "fade-up",
-      duration: duration
-    };
-
-    return (
-      <Card aos={aos} className="hvr-bob mdl-shadow--3dp full-width">
-        <CardTitle className="mdl-card--border">
-          {icon && <i className="card-icon material-icons">{icon}</i> }
-          <span className="card-title">{title}</span>
-        </CardTitle>
-        <CardSupportText className="text-justified">{text}</CardSupportText>
-      </Card>
-    );
+  if (target) {
+    $('html, body').animate({
+        scrollTop: $(target).offset().top
+    },'500', 'swing');
   }
 
-  render() {
+}
+
+const renderCard = (title='', text='', icon, duration=1500) => {
+  let aos = {
+    type : "fade-up",
+    duration: duration
+  };
+
+  return (
+    <Card aos={aos} className="hvr-bob mdl-shadow--3dp full-width">
+      <CardTitle className="mdl-card--border">
+        {icon && <i className="card-icon material-icons">{icon}</i> }
+        <span className="card-title">{title}</span>
+      </CardTitle>
+      <CardSupportText className="text-justified">{text}</CardSupportText>
+    </Card>
+  );
+}
+
+const ServiceSection = ({ id, className }) => {
+
     // max ->  12 >> 8 >> 4
     let ratio = {
       desktop: 4,
@@ -61,28 +71,27 @@ class ServiceSection extends React.Component {
     let defaultCellClasses = 'mdl-cell mdl-cell--stretch mdl-cell--top';
     let cellResponsive = `mdl-cell--stretch mdl-cell--${ratio.desktop}-col mdl-cell--${ratio.tablet}-col-tablet mdl-cell--${ratio.phone}-col-phone`;
     let cellClass = defaultCellClasses + ' ' + cellResponsive;
-    let sectionClass = `icg-services ${this.props.className}`;
+    let sectionClass = `icg-services ${className}`;
     let aosButton = { type: 'fade-up' };
 
     return (
-      <Section id={this.props.id} className={sectionClass}>
+      <Section id={id} className={sectionClass}>
         <h2 className="centered service-header" data-aos="fade-up">Services</h2>
 
         <div className="mdl-grid centered">
           {cards.map((card, index) => {
               return <div key={index} className={cellClass}>
-                {this.renderCard(card.title, card.text, card.icon, card.duration)}
+                {renderCard(card.title, card.text, card.icon, card.duration)}
               </div>;
           })}
         </div>
 
-        <Button aos={aosButton} className="centered hvr-grow" target="#homeMission">
+        <Button aos={aosButton} className="centered hvr-grow" target="#homeMission" handleClick={() => { goToNext('#homeMission')}}>
           What we can do for you
         </Button>
 
       </Section>
     );
-  }
 
 }
 

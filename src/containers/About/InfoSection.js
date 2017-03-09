@@ -1,10 +1,9 @@
 import React from 'react';
 import { Section, Card, Button } from '../../components';
 
-class InfoSection extends React.Component {
+const InfoSection = ({ className }) => {
 
-  render() {
-    let sectionClass = `icg-info ${this.props.className}`;
+    let sectionClass = `icg-info ${className}`;
 
     let aos = {
       type : "fade-up",
@@ -74,7 +73,6 @@ class InfoSection extends React.Component {
 
       </Section>
     );
-  }
 
 }
 

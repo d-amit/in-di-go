@@ -5,6 +5,8 @@ import MDL from 'material-design-lite/material.min.js';
 import $ from 'jquery';
 import dialogPolyfill from 'dialog-polyfill';
 
+
+// TODO: update to use redux instead of component state
 class ContactSection extends React.Component {
 
   constructor(props) {
@@ -23,6 +25,10 @@ class ContactSection extends React.Component {
     if (nextState.error.length > 1) {
       this.showDialog();
     }
+  }
+
+  componentDidMount() {
+    componentHandler.upgradeDom();
   }
 
   showDialog() {

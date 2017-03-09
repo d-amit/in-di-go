@@ -9,7 +9,7 @@ import { Header, Footer } from '../../components';
 
 const App = ({ view, onLinkClick }) => {
 
-    let content = (<Home/>);
+    let content = (<Home goToView={onLinkClick}/>);
     if (view === 'ABOUT') {
       content = (<About/>);
     }
