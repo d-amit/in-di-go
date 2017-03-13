@@ -10,5 +10,5 @@ npm install OR yarn install
 ```
 ## Running
 ```
-npm start
+npm start OR yarn start
 ```
