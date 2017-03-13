@@ -7,6 +7,7 @@ import dialogPolyfill from 'dialog-polyfill';
 
 
 // TODO: update to use redux instead of component state
+// TODO: maybe make a form component!
 class ContactSection extends React.Component {
 
   constructor(props) {

@@ -1,7 +1,15 @@
 import constants from './constants';
 
 const initialState = {
-  view : 'HOME' // initial state
+  view : 'HOME', // initial state
+  form : {
+    name : '',
+    email: '',
+    phone: '',
+    details : '',
+    error : '',
+    sent: false
+  }
 };
 
 export const reducers = (state = initialState, action) => {
