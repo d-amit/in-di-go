@@ -77,7 +77,7 @@ module.exports = {
         })
       }, {
         test: /\.(jpg|jpeg|gif|png|ico|svg)$/,
-        loader: 'file-loader'
+        loader: [ 'file-loader?minimize&optimizationLevel=5&progressive=true' ]
       }
     ],
   },
