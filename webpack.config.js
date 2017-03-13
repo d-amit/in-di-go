@@ -1,8 +1,10 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('[name].css');
+
 const defaultPlugins = [
   new webpack.HotModuleReplacementPlugin(), // enable HMR globally
   new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
@@ -13,25 +15,32 @@ const defaultPlugins = [
 
   extractCSS
 ];
+
 const devPlugins = [];
 const prodPlugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin()
 ];
 
+const icgEntry = process.env.NODE_ENV === 'production' ? [
+  './index.js'
+] : [
+  'react-hot-loader/patch',                           // activate HMR for React
+
+  'webpack-dev-server/client?http://localhost:8080',  // bundle the client for webpack-dev-server
+                                                      // and connect to the provided endpoint
+
+  'webpack/hot/only-dev-server',                      // bundle the client for hot reloading
+                                                      // only- means to only hot reload for successful updates
+
+  './index.js'                                        // the entry point of our app
+];
+
+
+
 module.exports = {
   entry: {
-    icg : [
-      'react-hot-loader/patch',                           // activate HMR for React
-
-      'webpack-dev-server/client?http://localhost:8080',  // bundle the client for webpack-dev-server
-                                                          // and connect to the provided endpoint
-
-      'webpack/hot/only-dev-server',                      // bundle the client for hot reloading
-                                                          // only- means to only hot reload for successful updates
-
-      './index.js',                                       // the entry point of our app
-    ]
+    icg : icgEntry
   },
 
   output: {
