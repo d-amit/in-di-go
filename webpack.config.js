@@ -18,9 +18,10 @@ const defaultPlugins = [
 
 const devPlugins = [];
 const prodPlugins = [
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin()
+  new webpack.optimize.OccurrenceOrderPlugin()
 ];
+
+console.info('ENV: ' + process.env.NODE_ENV);
 
 const icgEntry = process.env.NODE_ENV === 'production' ? [
   './index.js'
@@ -51,7 +52,7 @@ module.exports = {
 
   context: resolve(__dirname, 'src'),
 
-  devtool: 'inline-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map' ,
   devServer: {
     historyApiFallback: true,
     contentBase: resolve(__dirname, 'docs'),  // match the output path
