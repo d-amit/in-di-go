@@ -29,7 +29,7 @@ class Footer extends React.Component {
             <span className="madeWithLove">
               Made with <i className="material-icons">favorite</i> &nbsp;&nbsp;&nbsp;&nbsp;
             </span>
-            <span className="copyright">© 2017 Indigo Consulting Group, Inc.</span>
+            <span className="copyright">© 2019 Indigo Consulting Group, Inc.</span>
           </div>
         </div>
       </footer>
