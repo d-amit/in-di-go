@@ -6,7 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('[name].css');
 
 const defaultPlugins = [
-  new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+  new webpack.HotModuleReplacementPlugin({
+    multiStep: true
+  }), // enable HMR globally
   new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
   new HtmlWebpackPlugin({
     template: 'index.html',
@@ -69,20 +71,28 @@ module.exports = {
       }, {
         test: /\.css$/,
         loaders: extractCSS.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
-            'css-loader',
-            'postcss-loader'
+          use: [
+          {
+              loader: 'css-loader',
+              options: {
+                 sourceMap: true
+              }
+          }
           ]
         })
-      }, {
+      },
+      {
         test: /\.scss$/,
         loaders: extractCSS.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
-            'css-loader',
-            'sass-loader',
-            'postcss-loader'
+          use: [
+          {
+              loader: 'css-loader',
+              options: {
+                 sourceMap: true
+              }
+          }, {
+            loader: 'sass-loader'
+          }
           ]
         })
       }, {
@@ -93,7 +103,7 @@ module.exports = {
   },
 
   plugins: process.env.NODE_ENV === 'production' ?
-    defaultPlugins.concat(prodPlugins) : defaultPlugins.concat(devPlugins),
+    defaultPlugins.concat(prodPlugins) : defaultPlugins,
 
   resolve: {
     modules: [ "node_modules" ]
